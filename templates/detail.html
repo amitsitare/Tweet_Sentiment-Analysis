@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='detail.css') }}">
+
+</head>
+<body>
+
+    <h1>History Data of tweet Sentiment  Analysis and its text Analysis</h1>
+    
+    <table border="1">
+        <tr>
+            <th>User Name</th>
+            <th>Input-Text</th>
+            <th>Clean-Text</th>
+            <th>Number of Words</th>
+            <th>Number of Sentences</th>
+            <th>Positive Words</th>
+            <th>Negative Words</th>
+            <th>Tweet Sentiment</th>
+            
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ row[6] }}</td>
+            <td>{{ row[7] }}</td>
+            <td>{{ row[8] }}</td>
+        
+        </tr>
+        {% endfor %}
+    </table>
+</body>
