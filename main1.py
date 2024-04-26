@@ -37,7 +37,6 @@ negative_words = set(opinion_lexicon.negative())
 conn = psycopg2.connect(
     host="dpg-cnleda8l5elc73dq8j0g-a",
     database="country_5aym",
-    port=5432
     user="amit",
     password="J6O5kkf7wCcsGeN7XAgKWbL4rsMves0W"
 )
