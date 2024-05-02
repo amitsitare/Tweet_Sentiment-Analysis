@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            overflow: hidden;
+        }
+    
+        #video-content {
+            z-index: 1;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: black;
+            font-size: 29px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-image: url("static/another_img.jpg");
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        textarea {
+            height: 40px;
+            resize: none;
+            margin-bottom: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #name {
+            width: 300px;
+            height: 30px;
+        }
+
+        #btn {
+            margin-top: 10px; /* Adjusted margin */
+        }
+
+        .label {
+            font-size: 28px;
+            color: white;
+        }
+
+        /* Style for the admin logo */
+        #admin-icon {
+            width: 70px;
+            height: 50px;
+            margin-top: 5px;
+            margin-right: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        /* Style for the admin button (invisible) */
+        #admin-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            opacity: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin logo as a clickable link -->
+    <a href="{{ url_for('admin') }}">
+        <img src="static/images.png" alt="Admin" id="admin-icon">
+    </a>
+
+    <!-- Admin button (invisible) -->
+    <a href="{{ url_for('admin') }}" id="admin-btn"></a>
+
+    <video id="video-background" autoplay muted loop>
+        <source src="static/bck_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="video-content">
+        <h2>Predict the Sentiment of Tweets of Twitter</h2>
+        <form action="/predict" method="post">
+            <label for="name" class="label">Enter User name</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="URL" class="label">Enter the URL of Tweet</label><br>
+            <textarea name="URL" id="URL" rows="4" cols="50"></textarea><br><br>
+            <input type="submit" value="Predict" id="btn">
+        </form>
+    </div>
+</body>
+</html>
