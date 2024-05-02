@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 import base64
 from io import BytesIO
 import matplotlib
+from selenium import webdriver
+
 import psycopg2
 matplotlib.use('Agg')  # Switch to non-interactive backend
 
